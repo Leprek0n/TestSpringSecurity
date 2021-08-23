@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>All users</title>
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="${pageContext.request.contextPath}/resources/css/style.css}"/>
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+  <div id="header">
+
+    <h2>Users</h2>
+
+  </div>
+
+</div>
+
+<div id="container">
+
+  <div id="content">
+    <input type="button" value="Add User"
+           onclick="window.location.href='new'; return false;"
+           class="add-button"
+    />
+    <table>
+
+      <tr>
+
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+
+      </tr>
+
+    </table>
+
+  </div>
+
+</div>
+<div th:each="user: ${users}">
+
+  <a th:href="@{/{id} (id=${user.getId()})}" th:text="${user.getUsername()}">user</a>
+  <a th:text="${user.getEmail()}">email</a>
+
+
+</div>
+
+</body>
+</html>
