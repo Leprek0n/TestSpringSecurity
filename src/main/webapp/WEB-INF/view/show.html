@@ -8,7 +8,7 @@
 <p th:text="${user.getUsername()}">Value</p>
 <p th:text="${user.getEmail()}">Value</p>
 
-<a th:href="@{/{id}/edit (id=${user.getId()}) }">Edit</a>
-<a th:href="@{/{id}/delete (id=${user.getId()}) }">Delete</a>
+<a th:href="@{/admin/{id}/edit (id=${user.getId()}) }">Edit</a>
+<a th:href="@{/admin/{id}/delete (id=${user.getId()}) }">Delete</a>
 </body>
 </html>

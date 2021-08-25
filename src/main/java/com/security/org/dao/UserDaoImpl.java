@@ -25,19 +25,21 @@ public class UserDaoImpl implements UserDao {
 
 
     @Override
+    @Transactional
     public void save(User user) {
-        User user1 = entityManager.merge(user);
-        entityManager.persist(user1);
+        System.out.println("dao");
+        User managed = entityManager.merge(user);
+        entityManager.persist(managed);
     }
 
     @Override
-    public User showById(int id) {
+    public User showById(Long id) {
         return entityManager.find(User.class, id);
     }
 
     @Override
     @Transactional
-    public void update(User user, int id) {
+    public void update(User user, Long id) {
         User user1 = entityManager.find(User.class, id);
         user1.setUsername(user.getUsername());
 //        user1.setLastName(user.getLastName());
@@ -46,7 +48,8 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void delete( int id) {
+    @Transactional
+    public void delete( Long id) {
         User user1 = entityManager.find(User.class, id);
         entityManager.remove(user1);
     }
