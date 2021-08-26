@@ -15,8 +15,10 @@ import javax.xml.ws.Action;
 
 @Controller
 public class UserController {
+
     @Autowired
     private UserService userService;
+
     @GetMapping("/user")
     public ModelAndView showUser() {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();

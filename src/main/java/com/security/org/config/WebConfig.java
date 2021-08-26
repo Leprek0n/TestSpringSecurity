@@ -11,21 +11,21 @@ import javax.servlet.ServletException;
 public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[] {
+        return new Class[]{
                 AppConfig.class
         };
     }
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[] {
+        return new Class[]{
                 AppConfig.class
         };
     }
 
     @Override
     protected String[] getServletMappings() {
-        return new String[] {
+        return new String[]{
                 "/"
         };
     }
@@ -38,6 +38,6 @@ public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitiali
 
     private void registerHiddenFieldFilter(ServletContext aContext) {
         aContext.addFilter("hiddenHttpMethodFilter",
-                new HiddenHttpMethodFilter()).addMappingForUrlPatterns(null ,true, "/*");
+                new HiddenHttpMethodFilter()).addMappingForUrlPatterns(null, true, "/*");
     }
 }

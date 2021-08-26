@@ -10,7 +10,6 @@ import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
-
 @Table(name = "users")
 public class User implements UserDetails {
     @Id

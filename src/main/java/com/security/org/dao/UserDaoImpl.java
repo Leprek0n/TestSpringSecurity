@@ -27,7 +27,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     @Transactional
     public void save(User user) {
-        System.out.println("dao");
+
         User managed = entityManager.merge(user);
         entityManager.persist(managed);
     }
@@ -42,14 +42,13 @@ public class UserDaoImpl implements UserDao {
     public void update(User user, Long id) {
         User user1 = entityManager.find(User.class, id);
         user1.setUsername(user.getUsername());
-//        user1.setLastName(user.getLastName());
         user1.setEmail(user.getEmail());
         entityManager.merge(user1);
     }
 
     @Override
     @Transactional
-    public void delete( Long id) {
+    public void delete(Long id) {
         User user1 = entityManager.find(User.class, id);
         entityManager.remove(user1);
     }

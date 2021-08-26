@@ -27,7 +27,7 @@ public class DBConfig {
         this.environment = environment;
     }
 
-    /************* Start Spring JPA config details **************/
+
     @Bean(name = "entityManagerFactory")
     public LocalContainerEntityManagerFactoryBean getEntityManagerFactoryBean() {
         LocalContainerEntityManagerFactoryBean lcemfb = new LocalContainerEntityManagerFactoryBean();
@@ -52,7 +52,6 @@ public class DBConfig {
         return jpaTransactionManager;
     }
 
-    /************* End Spring JPA config details **************/
 
     @Bean
     public DataSource dataSource() {
